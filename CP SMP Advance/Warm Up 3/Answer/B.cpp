@@ -21,7 +21,7 @@ int main() {
             int max = *max_element(arr.begin(), arr.end());
             int min = *min_element(arr.begin(), arr.end());
             // cout << max << " " << min << endl;
-            if (max - min > 1) {
+            if (abs(max - min) > 1) {
                 isPossible = "NO";
                 break;
             }
