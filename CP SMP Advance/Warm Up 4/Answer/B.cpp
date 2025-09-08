@@ -1,22 +1,23 @@
-#include <iostream>
+#include<iostream>
+#include<string>
 
-using namespace std;
+using std::string;
 
-int main() {
-    int n;
-    cin >> n;
-
-    for (size_t i = 0; i < n; i++)
-    {
-        string word;
-        cin >> word;
-        int diff = 0;
-        for (char c : word) {
-            diff++;
+bool luckynum(string a){
+    for(char c:a){
+        if(c != '7' && c != '4'){
+            return false;
         }
-
-        cout << diff << endl;
     }
-    
+    return true;
+}
+
+int main(){
+    string n;
+    std::cin >>n;
+    bool isLucky = luckynum(n);
+    std::cout << isLucky << true << "\n";
+    std::cout << (isLucky ? "YES" : "NO");
+
     return 0;
 }

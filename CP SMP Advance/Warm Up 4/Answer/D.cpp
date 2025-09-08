@@ -1,31 +1,27 @@
 #include <iostream>
 #include <math.h>
+#include <string>
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int x1, x2, y1, y2;
-        int x_temp, y_temp;
-        
-        for (size_t j = 0; j < 4; j++)
+    string year;
+    cin >> year;
+    year = to_string(stoi(year) + 1);
+    bool isBeautiful = true;
+    do {
+        isBeautiful = true;
+        for (size_t i = 1; i < 4; i++)
         {
-            cin >> x_temp >> y_temp;
-            if (j == 0) {
-                x1 = x_temp;
-                y1 = y_temp;
-            } else {
-                if (x1 != x_temp) {
-                    x2 = x_temp;
-                }
-                if (y1 != y_temp) {
-                    y2 = y_temp;
-                }
+            int f = count(year.begin(), year.end(), year[i]);
+            if (f > 1) {
+                isBeautiful = false;
+                year = to_string(stoi(year) + 1);
+                break;
             }
         }
-        int square = abs(x1 - x2) * abs(y1 - y2);
-        cout << square << endl;
-    }
+        if (isBeautiful) cout << year;
+    } while (!isBeautiful);
+    
+    
     return 0;
 }
